@@ -57,5 +57,3 @@ Match all 12 pairs before the timer runs out and achieve the highest accuracy po
 ## 📄 License
 
 This project is for educational and demonstration purposes.
-
-
