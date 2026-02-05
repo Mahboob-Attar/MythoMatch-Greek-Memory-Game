@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MythoMatch - Greek Memory Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= INTRO ================= -->
+<div id="intro-screen">
+    <div class="intro-box">
+        <h2>⚡ Welcome to MythoMatch</h2>
+        <div class="intro-buttons">
+            <button onclick="showDemo()">🎥 Watch Demo</button>
+            <button onclick="beginGame()">🚀 Start Playing</button>
+        </div>
+    </div>
+</div>
+
+<!-- ================= DEMO ================= -->
+<div id="demo-modal">
+    <div class="demo-box">
+        <h2>🎮 How It Works</h2>
+
+        <p>1️⃣ All cards appear briefly.</p>
+        <p>2️⃣ Match two same Greek letters.</p>
+        <p>3️⃣ Each pair counts as one attempt.</p>
+        <p>4️⃣ Final score is based on accuracy.</p>
+        <p>Accuracy = (Correct Matches / Attempts) × 100</p>
+        <!-- Auto Demo Board -->
+        <div id="demo-board"></div>
+        <div id="demo-status"></div>
+        <div id="demo-cursor">🖱️</div>
+        <button onclick="closeDemo()">Close</button>
+    </div>
+</div>
+
+
+<!-- ================= GAME ================= -->
+<div class="container" id="game-container" style="display:none;">
+
+    <h1>⚡ MythoMatch</h1>
+
+    <div class="controls">
+        <select id="difficulty">
+            <option value="easy">Easy (11s Preview)</option>
+            <option value="medium" selected>Medium (9s Preview)</option>
+            <option value="hard">Hard (6s Preview)</option>
+        </select>
+        <button class="start-btn" onclick="startGame()">Start Game</button>
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+    </div>
+
+    <div class="info">
+        <div>Score: <span id="score">0</span></div>
+        <div>Attempts: <span id="attempts">0</span></div>
+
+        <div class="timer-wrapper">
+            <svg class="progress-ring" width="70" height="70">
+                <circle
+                    class="progress-ring__circle"
+                    stroke="white"
+                    stroke-width="6"
+                    fill="transparent"
+                    r="28"
+                    cx="35"
+                    cy="35"/>
+            </svg>
+            <div class="timer-text" id="timer">0</div>
+        </div>
+    </div>
+
+    <div id="game-board"></div>
+</div>
+
+<!-- ================= ADVERTISEMENT ================= -->
+<div id="ad-overlay">
+    <div class="ad-container">
+        <video id="ad-video" autoplay muted playsinline loop>
+            <source src="assets/ad-video.mp4" type="video/mp4">
+        </video>
+
+        <div class="ad-top-bar">
+            <span id="ad-timer">Ad • 5</span>
+            <button id="skip-ad" disabled>Skip Ad</button>
+        </div>
+
+        <div class="ad-cta">
+            <button onclick="visitSponsor()">Visit Sponsor</button>
+              <button id="sound-btn">🔊 Unmute</button>
+        </div>
+    </div>
+</div>
+
+<!-- ================= SPONSOR POPUP ================= -->
+<div id="sponsor-popup">
+    <div class="sponsor-box">
+        <h3>Connect With Us</h3>
+
+        <div class="sponsor-links">
+            <a href="https://www.linkedin.com/in/mahboob-attar/" target="_blank">
+                <img src="assets/linkedin.png" alt="LinkedIn">
+                <span>LinkedIn</span>
+            </a>
+
+            <a href="https://www.instagram.com/bablu.x.o?igsh=MW8xcTBoYjIyOWowYg==" target="_blank">
+                <img src="assets/instagram.png" alt="Instagram">
+                <span>Instagram</span>
+            </a>
+
+            <a href="https://github.com/Mahboob-Attar" target="_blank">
+                <img src="assets/github.png" alt="GitHub">
+                <span>GitHub</span>
+            </a>
+        </div>
+
+        <button onclick="closeSponsor()">Close</button>
+    </div>
+</div>
+
+
+<!-- ================= END ================= -->
+<div id="end-screen">
+    <h2 id="result-text"></h2>
+    <h3 id="percentage-text"></h3>
+    <button onclick="restartGame()">Play Again</button>
+</div>
+
+<script src="js/script.js"></script>
+<audio id="click-sound" src="assets/click.wav" preload="auto"></audio>
+</body>
+</html>
